@@ -1,2 +1,2 @@
 # AAA-HWs
-Repo for homeworks for academy of analytics Avito
+Repo for homeworks on Python for academy of analytics Avito
