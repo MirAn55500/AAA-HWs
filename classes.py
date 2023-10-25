@@ -1,26 +1,35 @@
+from typing import List
+
+
 class CountVectorizer:
     '''class for vectorizing words and making matrixes
      with number of each word of text
-
-     - fit_transform method retuns matrix which shows the number
-     of each word
-     input: list of strings
-     output: list of lists of counts of words in strings
-
-     - get_feature_names method returns list of words
-      which were given in the corpus of strings
-      input: None
-      output: list of words
      '''
-    def __init__(self, dictionary={}):
+    def __init__(self, dictionary=None):
         self.dictionary = dictionary
 
-    def fit_transform(self, text):
-        self.dictionary.clear()
-        matrix = []
+    @staticmethod
+    def tokenize(text):
+        '''method for tokenization of text'''
+        new_text = []
         for sentence in text:
+            new_sentence = []
             for word in sentence.lower().split():
                 word = word.strip(',.!?:;(){}[]')
+                new_sentence.append(word)
+            new_text.append(new_sentence)
+        return new_text
+
+    def fit_transform(self, text: List[str]) -> List[List[int]]:
+        ''' fit_transform method retuns matrix which shows the number
+        of each word
+        input: list of strings
+        output: list of lists of counts of words in strings'''
+        self.dictionary = dict()
+        matrix = []
+        text = CountVectorizer.tokenize(text)
+        for sentence in text:
+            for word in sentence:
                 if word not in self.dictionary:
                     self.dictionary[word] = 1
                 else:
@@ -28,13 +37,19 @@ class CountVectorizer:
 
         for sentence in text:
             sentence_dict = dict.fromkeys(self.dictionary, 0)
-            for word in sentence.lower().split():
-                word = word.strip(',.!?:;(){}[]')
+            for word in sentence:
                 sentence_dict[word] += 1
             matrix.append(list(sentence_dict.values()))
         return matrix
 
     def get_feature_names(self):
+        '''
+        get_feature_names method returns list of words
+        which were given in the corpus of strings
+        input: None
+        output: list of words'''
+        if self.dictionary is None:
+            return []
         return list(self.dictionary.keys())
 
 
@@ -85,7 +100,7 @@ def tests():
     assert vectorizer.get_feature_names() == ans5, 'Error in names in corpus5'
     assert count_matrix == matrix5, 'Error in matrix in corpus5'
 
-    print('All tests were passes. Well done!')
+    print('All tests were passed. Well done!')
 
 
 if __name__ == '__main__':
