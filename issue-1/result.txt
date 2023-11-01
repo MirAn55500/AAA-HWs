@@ -1,0 +1,29 @@
+$ python -m doctest -v testing.py
+
+Trying:
+    encode('SOS')
+Expecting:
+    '... --- ...'
+ok
+Trying:
+    encode('A R T') # doctest: +NORMALIZE_WHITESPACE
+Expecting:
+    '.- .-. -'
+ok
+Trying:
+    encode('aaa')
+Expecting:
+    Traceback (most recent call last):
+        ...
+    KeyError: 'a'
+ok
+1 items had no tests:
+    testing
+1 items passed all tests:
+   3 tests in testing.test_encoding
+3 tests in 2 items.
+3 passed and 0 failed.
+Test passed.
+
+$ python -m doctest testing.py
+Ничего не выводится

@@ -1,0 +1,21 @@
+$ python -m unittest
+
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK
+
+
+$ python -m unittest -v
+
+test_empty_string (testing.TestEncoder) ... ok
+test_first (testing.TestEncoder) ... ok
+test_none (testing.TestEncoder) ... ok
+test_one_word (testing.TestEncoder) ... ok
+test_second (testing.TestEncoder) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK
