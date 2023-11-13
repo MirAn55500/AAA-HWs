@@ -1,6 +1,6 @@
 # Testing
 Чтобы запустить тесты, введите в консоли в директории issue-3:  
-python -m unittest
+"python -m unittest"
 
 Если необходимо получить больше информации, добавьте параметр -v:  
-python -m unittest -v
+"python -m unittest -v"

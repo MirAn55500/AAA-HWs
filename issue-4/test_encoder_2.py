@@ -24,5 +24,6 @@ def test_one_word():
 
 
 def test_none():
-    with pytest.raises(TypeError):
+    with pytest.raises(TypeError) as excinfo:
         fit_transform()
+    assert "expected at least 1 arguments, got 0" in str(excinfo.value)

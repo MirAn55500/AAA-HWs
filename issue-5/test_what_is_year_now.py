@@ -1,4 +1,6 @@
 from unittest.mock import patch
+
+import pytest
 from what_is_year_now import what_is_year_now
 
 
@@ -16,13 +18,9 @@ def test_get_cases():
 
         json_data = '{"currentDateTime": "01-11-2023"}'
         mocked_response.__enter__.return_value.read.return_value = json_data
-        try:
+        with pytest.raises(ValueError):
             what_is_year_now()
-        except ValueError:
-            pass
-        else:
-            print('test 3 failed')
 
 
 if __name__ == "__main__":
-    test_get_cases
+    test_get_cases()
