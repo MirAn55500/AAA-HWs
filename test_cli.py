@@ -1,7 +1,6 @@
 from click.testing import CliRunner
 from cli import cli
 
-# from operations import bake, delivery, pickup
 from unittest.mock import patch
 
 

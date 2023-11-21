@@ -14,13 +14,13 @@ def cli() -> None:
 @click.option('--size', default='L')
 @click.argument('pizza', nargs=1)
 def order(pizza: str, size: str, deliver: bool) -> None:
-    '''Готовит и доставляет пиццу:
+    """Готовит и доставляет пиццу:
     Берём пиццу, которую выбрал пользователь и
     передаём в функции приготовления и доставки/самовывоза.
     Принимаемый аргумент - pizza.
     Есть 2 параметра:
     --deliver, который по умолчанию False и отвечает за доставку/самовывоз
-    --size, который по умолчанию L и отвечает за размер пиццы'''
+    --size, который по умолчанию L и отвечает за размер пиццы"""
     if pizza.lower() == 'pepperoni':
         pizza_obj = Pepperoni(size)
     elif pizza.lower() == 'margherita':
@@ -38,8 +38,8 @@ def order(pizza: str, size: str, deliver: bool) -> None:
 
 @cli.command()
 def menu() -> None:
-    '''Выводит меню:
-    Пробегается по всем подклассам, выводит имена и ингридиенты пицц'''
+    """Выводит меню:
+    Пробегается по всем подклассам, выводит имена и ингридиенты пицц"""
     for subclass in Pizza.__subclasses__():
         ingredients = subclass('L').ingreds
         print(f"- {subclass.__name__}{subclass('L').emoji}: "

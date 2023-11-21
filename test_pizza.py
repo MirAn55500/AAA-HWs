@@ -31,28 +31,28 @@ def test_equal_one_pizza():
     pizza1 = Pepperoni('L')
     pizza2 = Pepperoni('XL')
     actual = pizza1 == pizza2
-    assert actual == 'Different pizzas'
+    assert actual is False
 
 
 def test_equal_diff_pizza():
     pizza1 = Hawaiian('L')
     pizza2 = Margherita('L')
     actual = pizza1 == pizza2
-    assert actual == 'Different pizzas'
+    assert actual is False
 
 
 def test_same_pizzas():
     pizza1 = Pepperoni('L')
     pizza2 = Pepperoni('L')
     actual = pizza1 == pizza2
-    assert actual == 'Equal pizzas'
+    assert actual is True
 
 
 def test_not_pizza_equality():
     pizza1 = Pepperoni('L')
     pizza2 = 'pizza'
-    actual = pizza1 == pizza2
-    assert actual == 'This is not pizza!'
+    with pytest.raises(ValueError):
+        Pepperoni(pizza1 == pizza2)
 
 
 def test_dict():
