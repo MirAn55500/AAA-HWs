@@ -74,4 +74,3 @@ async def test_limit_execution_time_many():
         await asyncio.sleep(0)
 
         assert all(rw.is_correctly_canceled for rw in waiters), "некоторые корутины не были корректно завершены!"
-
