@@ -35,7 +35,7 @@ ZERO = 'O'
 DEFAULT_STATE = [[FREE_SPACE for _ in range(3)] for _ in range(3)]
 
 
-def get_default_state():
+def get_default_state() -> list[list[str]]:
     """Helper function to get default state of the game"""
     return deepcopy(DEFAULT_STATE)
 
