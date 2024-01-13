@@ -1,11 +1,10 @@
 import pytest
-from telegram import (InlineKeyboardButton, Update,
-                      Message, User, Chat, CallbackQuery)
+from telegram import (CallbackQuery, Chat, InlineKeyboardButton, Message,
+                      Update, User)
 from telegram.ext import ContextTypes
 
-from tg_bot import (get_default_state, generate_keyboard,
-                    start, initial_step, won, game)
-
+from tg_bot import (game, generate_keyboard, get_default_state, initial_step,
+                    start, won)
 
 FREE_SPACE = '.'
 CROSS = 'X'
